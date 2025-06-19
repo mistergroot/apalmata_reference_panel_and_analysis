@@ -25,12 +25,12 @@ bcftools view -T ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps.txt \
     -s 1000000 ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned.vcf \
     -r ${RECOMBRATE} -o ${OUTPREFIX} -t $SLURM_NTASKS
 
-#grep "^#" ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned.vcf \
-#    > ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf
-#grep -v "^#" ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned.vcf \
-#    | grep "^OZ" |  grep -v "^OZ076403.1" \
-#    >> ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf
+grep "^#" ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned.vcf \
+    > ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf
+grep -v "^#" ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned.vcf \
+    | grep "^OZ" |  grep -v "^OZ076403.1" \
+    >> ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf
 
-#/fs/dss/work/noge4093/dendrogyra_popgen/GONE2/gone2 \
-#    -g ${GONEDATATYPE} ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf \
-#    -s 1000000 -r ${RECOMBRATE} -o ${OUTPREFIX} -t $SLURM_NTASKS
+/fs/dss/work/noge4093/dendrogyra_popgen/GONE2/gone2 \
+    -g ${GONEDATATYPE} ${OUTPREFIX}_${SLURM_JOB_ID}_random_snps_thinned_onlylargechr.vcf \
+    -s 1000000 -r ${RECOMBRATE} -o ${OUTPREFIX} -t $SLURM_NTASKS
